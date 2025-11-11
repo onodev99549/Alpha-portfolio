@@ -21,8 +21,8 @@ type SocialLink = {
 
 const socialLinks: SocialLink[] = [
   { name: 'GitHub', url: 'https://github.com/alpha', icon: Github },
-  { name: 'Telegram', url: 'https://t.me/alpha9549', icon: Send, avatarUrl: '/avatars/telegram.png' },
-  { name: 'Discord', url: 'https://discord.com/users/alpa_team007/', icon: Gamepad2, avatarUrl: '/avatars/discord.png' },
+  { name: 'Telegram', url: 'https://t.me/alpha9549', icon: Send, avatarUrl: '/avatars/telegram.svg' },
+  { name: 'Discord', url: 'https://discord.com/users/alpa_team007/', icon: Gamepad2, avatarUrl: '/avatars/discord.svg' },
 ];
 
 export default function Sidebar() {
