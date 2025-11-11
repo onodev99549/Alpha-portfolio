@@ -14,7 +14,7 @@ const routes = [
 const socialLinks = [
   { name: 'GitHub', url: 'https://github.com/alpha', icon: Github },
   { name: 'Telegram', url: 'https://t.me/alpha9549', icon: Telegram },
-  { name: 'Discord', url: 'https://discord.com/user/alpa_team007/', icon: Discord },
+  { name: 'Discord', url: 'https://discord.com/users/alpa_team007/', icon: Discord },
 ];
 
 export default function Sidebar() {
