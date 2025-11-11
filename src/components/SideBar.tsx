@@ -21,8 +21,8 @@ type SocialLink = {
 
 const socialLinks: SocialLink[] = [
   { name: 'GitHub', url: 'https://github.com/alpha', icon: Github },
-  { name: 'Telegram', url: 'https://t.me/alpha9549', icon: Send, avatarUrl: '/avatars/telegram.svg' },
-  { name: 'Discord', url: 'https://discord.com/users/alpa_team007/', icon: Gamepad2, avatarUrl: '/avatars/discord.svg' },
+  { name: 'Telegram', url: 'https://t.me/alpha9549', icon: Send, avatarUrl: 'avatars/telegram.svg' },
+  { name: 'Discord', url: 'https://discord.com/users/alpa_team007/', icon: Gamepad2, avatarUrl: 'avatars/discord.svg' },
 ];
 
 export default function Sidebar() {
@@ -33,6 +33,11 @@ export default function Sidebar() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
  
+  const withBase = (path: string) => {
+    const base = import.meta.env.BASE_URL || '/';
+    const trimmed = path.replace(/^\/+/, '');
+    return `${base}${trimmed}`;
+  };
 
   const SidebarContent = () => (
     <div className="font-inconsolata flex flex-col h-full px-3 py-4 overflow-y-auto bg-black text-white dark:bg-gray-800">
@@ -71,7 +76,7 @@ export default function Sidebar() {
               >
                 {link.avatarUrl ? (
                   <img
-                    src={link.avatarUrl}
+                    src={link.avatarUrl.startsWith('http') ? link.avatarUrl : withBase(link.avatarUrl)}
                     alt={`${link.name} avatar`}
                     className="w-5 h-5 mr-3 rounded-full object-cover"
                     loading="lazy"
