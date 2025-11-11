@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { Home, User, Briefcase, FolderOpen, PenTool, Mail, Github, Telegram, Discord, Menu } from 'lucide-react';
+import { Home, User, Briefcase, FolderOpen, PenTool, Mail, Github, Send, Gamepad2, Menu, X } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 const routes = [
   { name: 'HOME', path: '/', icon: Home },
@@ -11,10 +12,17 @@ const routes = [
   { name: 'CONTACT', path: '/contact', icon: Mail },
 ];
 
-const socialLinks = [
+type SocialLink = {
+  name: string;
+  url: string;
+  icon: LucideIcon;
+  avatarUrl?: string;
+};
+
+const socialLinks: SocialLink[] = [
   { name: 'GitHub', url: 'https://github.com/alpha', icon: Github },
-  { name: 'Telegram', url: 'https://t.me/alpha9549', icon: Telegram },
-  { name: 'Discord', url: 'https://discord.com/users/alpa_team007/', icon: Discord },
+  { name: 'Telegram', url: 'https://t.me/alpha9549', icon: Send, avatarUrl: '/avatars/telegram.png' },
+  { name: 'Discord', url: 'https://discord.com/users/alpa_team007/', icon: Gamepad2, avatarUrl: '/avatars/discord.png' },
 ];
 
 export default function Sidebar() {
@@ -61,7 +69,17 @@ export default function Sidebar() {
                 rel="noopener noreferrer"
                 className="flex items-center p-2 hover:text-black text-slate-200 rounded-lg dark:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
-                <link.icon className="w-5 h-5 mr-3" />
+                {link.avatarUrl ? (
+                  <img
+                    src={link.avatarUrl}
+                    alt={`${link.name} avatar`}
+                    className="w-5 h-5 mr-3 rounded-full object-cover"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                  />
+                ) : (
+                  <link.icon className="w-5 h-5 mr-3" />
+                )}
                 <span>{link.name}</span>
               </a>
             </li>
