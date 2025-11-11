@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { Home, User, Briefcase, FolderOpen, PenTool, Mail, Github, Linkedin, Menu, X } from 'lucide-react';
+import { Home, User, Briefcase, FolderOpen, PenTool, Mail, Github, Telegram, Discord, Menu } from 'lucide-react';
 
 const routes = [
   { name: 'HOME', path: '/', icon: Home },
@@ -12,9 +12,9 @@ const routes = [
 ];
 
 const socialLinks = [
-  { name: 'X', url: 'https://x.com/theactual001', icon: X },
-  { name: 'GitHub', url: 'https://github.com/paul1029-ife', icon: Github },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/paul-agbogun01/', icon: Linkedin },
+  { name: 'GitHub', url: 'https://github.com/alpha', icon: Github },
+  { name: 'Telegram', url: 'https://t.me/alpha9549', icon: Telegram },
+  { name: 'Discord', url: 'https://discord.com/users/alpa_team007/', icon: Discord },
 ];
 
 export default function Sidebar() {
